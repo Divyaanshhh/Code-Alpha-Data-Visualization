@@ -1,0 +1,68 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from wordcloud import WordCloud, STOPWORDS
+
+# Load the dataset
+url = "https://raw.githubusercontent.com/Simatwa/movies-dataset/main/data/combined.csv"
+df = pd.read_csv(url)
+
+print("✅ Dataset loaded!")
+print("📋 Columns:", df.columns.tolist())
+
+# 1️⃣ Bar Chart – Top 10 Movie Genres
+top_genres = df['genre'].value_counts().head(10)
+
+plt.figure(figsize=(10, 6))
+sns.barplot(x=top_genres.values, y=top_genres.index, palette="mako")
+plt.title("Top 10 Movie Genres")
+plt.xlabel("Number of Movies")
+plt.ylabel("Genre")
+plt.tight_layout()
+plt.show(block=True)
+
+# 2️⃣ Line Plot – Movies Released Over the Years
+movies_per_year = df['year'].value_counts().sort_index()
+
+plt.figure(figsize=(12, 5))
+sns.lineplot(x=movies_per_year.index, y=movies_per_year.values, marker="o")
+plt.title("Movies Released Over the Years")
+plt.xlabel("Year")
+plt.ylabel("Number of Movies")
+plt.grid(True)
+plt.tight_layout()
+plt.show(block=True)
+
+# 3️⃣ Improved Pie Chart – Movie Category Distribution
+top_categories = df['category'].value_counts().head(6)
+
+explode = [0.05] * len(top_categories)  # Slightly separate all slices
+colors = sns.color_palette('pastel')[0:len(top_categories)]
+
+plt.figure(figsize=(7, 7))
+plt.pie(top_categories.values,
+        labels=top_categories.index,
+        autopct='%1.1f%%',
+        startangle=90,
+        shadow=True,
+        explode=explode,
+        colors=colors)
+
+plt.title("Diverse Distribution of Movie Categories")
+plt.tight_layout()
+plt.show(block=True)
+
+# 4️⃣ Word Cloud – Most Common Words in Descriptions
+desc_text = " ".join(str(desc) for desc in df['description'].dropna())
+
+wordcloud = WordCloud(width=800, height=400, background_color='white',
+                      stopwords=set(STOPWORDS)).generate(desc_text)
+
+plt.figure(figsize=(10, 5))
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.title("Most Common Words in Movie Descriptions")
+plt.tight_layout()
+plt.show(block=True)
+
+input("✅ All 4 visualizations completed! Press Enter to exit...")

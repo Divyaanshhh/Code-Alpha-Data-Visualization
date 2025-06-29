@@ -37,7 +37,7 @@ Generates a visual of the most frequently used words in movie descriptions. Word
 - `pandas` for data manipulation
 - `matplotlib` & `seaborn` for visualization
 - `wordcloud` for text analysis
-- `Jupyter Notebook` / `PyCharm`
+- `PyCharm`
 
 ---
 
@@ -51,13 +51,6 @@ A detailed report with visual explanations is included:
 - Data visualization techniques using Python
 - Extracting insights from categorical and text data
 - Communicating trends effectively with visuals
-
----
-
-## 🚀 Future Improvements
-- Use a richer dataset (with ratings, revenue, etc.)
-- Add interactive dashboards using Plotly or Streamlit
-- Automate analysis using functions and modular code
 
 ---
 

@@ -1,0 +1,17 @@
+Task 3 – Data Visualization Report
+Internship Task: Data Analytics
+
+Dataset: Movies Dataset (combined.csv)
+Date: June 29, 2025
+
+1. Top 10 Movie Genres (Bar Chart)
+This bar chart shows the most common genres in the dataset. Genres like Drama, Comedy, and Action appear most frequently, suggesting these are the most produced movie types.
+
+2. Movies Released Over the Years (Line Plot)
+This line plot visualizes the number of movies released per year. We can observe trends such as increases in production over time or certain peak years for movie releases.
+
+3. Movie Category Distribution (Pie Chart)
+The pie chart illustrates the proportion of movies by category. This helps us understand how the dataset is distributed among categories like Film, TV, etc.
+
+4. Word Cloud from Descriptions
+This word cloud represents the most common words used in movie descriptions. Words like life, love, man, and story appear prominently, reflecting common movie themes.
